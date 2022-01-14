@@ -11,6 +11,6 @@ public class CrudeventosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudeventosApplication.class, args);
-        }
+	}
 
 }
