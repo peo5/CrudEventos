@@ -1,0 +1,72 @@
+body { 
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	font-family: sans;
+}
+
+input {
+	border: 1px solid black;
+	border-radius: 20px;
+	padding: 10px;
+	background: none;
+	max-width: 20vw;
+}
+
+.btn, input[type="submit"] {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+	border: none;
+	border-radius: 20px;
+	padding: 10px;
+	background-color: #7ae;
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	width: 10vw;
+	cursor: pointer;
+}
+
+.btn:hover, input[type="submit"]:hover {
+	background-color: #7ae5;
+}
+
+.center_nest {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn_nest {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.evento {
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	width: 40vw;
+	display: inline-grid;
+	grid-template-columns: 2fr 2fr 1fr 1fr;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	text-decoration: none;
+}
+
+form, #lista_eventos {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

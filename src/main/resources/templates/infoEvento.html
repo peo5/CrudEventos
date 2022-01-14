@@ -6,29 +6,34 @@ xmlns:th="http://www.thymeleaf.org">
 		<title th:text="${evento.nome}" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<div id="evento_container">
-			<table>
-				<tr>
-					<td>Nome:</td>
-					<td><span th:text="${evento.nome}" /></td>
-				</tr>
-				<tr>
-					<td>Local:</td>
-					<td><span th:text="${evento.local}" /></td>
-				</tr>
-				<tr>
-					<td>Data:</td>
-					<td><span th:text="${evento.data}" /></td>
-				</tr>
-				<tr>
-					<td>Horário:</td>
-					<td><span th:text="${evento.horario}" /></td>
-				</tr>
-			</table>
+		<div class="center_nest">
+			<h2>Sobre o evento</h2>
+			<div id="evento_container">
+				<table>
+					<tr>
+						<td>Nome:</td>
+						<td><span th:text="${evento.nome}" /></td>
+					</tr>
+					<tr>
+						<td>Local:</td>
+						<td><span th:text="${evento.local}" /></td>
+					</tr>
+					<tr>
+						<td>Data:</td>
+						<td><span th:text="${evento.data}" /></td>
+					</tr>
+					<tr>
+						<td>Horário:</td>
+						<td><span th:text="${evento.horario}" /></td>
+					</tr>
+				</table>
+			</div>
+			<div class="btn_nest">
+				<a href="/"><div class="btn">início</div></a>
+			</div>
 		</div>
-		<a href="/"><button>Inicio</button></a>
-	</body>
 </html>
 

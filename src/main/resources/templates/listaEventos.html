@@ -6,18 +6,24 @@ xmlns:th="http://www.thymeleaf.org">
 		<title>Lista</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<div id="lista_eventos" th:each="evento : ${eventos}">
-			<a th:href="@{/evento(id=${evento.id})}">
-				<div class="evento">
-					<span th:text="${evento.nome}" class="evento_nome"></span>
-					<span th:text="${evento.local}" class="evento_local"></span>
-					<span th:text="${evento.data}" class="evento_data"></span>
-					<span th:text="${evento.horario}" class="evento_horario"></span>
-				</div>
-			</a>
+		<div class="center_nest">
+			<h2>Lista de eventos</h2>
+			<div id="lista_eventos">
+				<a th:each="evento : ${eventos}" th:href="@{/evento(id=${evento.id})}">
+					<div class="evento">
+						<span th:text="${evento.nome}" class="evento_nome"></span>
+						<span th:text="${evento.local}" class="evento_local"></span>
+						<span th:text="${evento.data}" class="evento_data"></span>
+						<span th:text="${evento.horario}" class="evento_horario"></span>
+					</div>
+				</a>
+			</div>
+			<div class="btn_nest">
+				<a href="/"><div class="btn">início</div></a>
+			</div>
 		</div>
-		<a href="/"><button>Inicio</button></a>
 	</body>
 </html>
