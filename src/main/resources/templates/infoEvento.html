@@ -10,8 +10,8 @@ xmlns:th="http://www.thymeleaf.org">
 	</head>
 	<body>
 		<div class="center_nest">
-			<h2>Sobre o evento</h2>
 			<div id="evento_container">
+				<h2>Informações</h2>
 				<table>
 					<tr>
 						<td>Nome:</td>
@@ -31,8 +31,12 @@ xmlns:th="http://www.thymeleaf.org">
 					</tr>
 				</table>
 			</div>
+			<div id="convidados_container">
+				<h2>Convidados</h2>
+			</div>
 			<div class="btn_nest">
 				<a href="/"><div class="btn">início</div></a>
+				<a th:href="@{/cadastro/convidado(idEvento=${evento.id})}"><div class="btn">adicionar convidado</div></a>
 			</div>
 		</div>
 </html>

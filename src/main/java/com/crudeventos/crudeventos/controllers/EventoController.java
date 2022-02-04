@@ -1,6 +1,8 @@
 package com.crudeventos.crudeventos.controllers;
 
 import com.crudeventos.crudeventos.models.ConvidadoModel;
+import com.crudeventos.crudeventos.models.ConvidadoRepository;
+import com.crudeventos.crudeventos.models.EventoModel;
 import com.crudeventos.crudeventos.models.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,15 +17,32 @@ public class EventoController {
 	@Autowired
 	private EventoRepository er;
 	
+	@Autowired
+	private ConvidadoRepository cr;
+	
 	@GetMapping("/cadastro")
-	public String getEvento() {
+	public String getCadastroEvento() {
 		return "cadastroEvento";
 	}
 	
 	@PostMapping("/cadastro")
-	public String postEvento(ConvidadoModel evento) {
+	public String postEvento(EventoModel evento) {
 		er.save(evento);
 		return "redirect:lista";
+	}
+	
+	@GetMapping("/cadastro/convidado")
+	public ModelAndView getCadastroConvidado(@RequestParam long idEvento) {
+		ModelAndView mv = new ModelAndView("cadastroConvidado");
+		mv.addObject("idEvento", idEvento);
+		return mv;
+	}
+	
+	@PostMapping("/cadastro/convidado")
+	public String postConvidado(long idEvento, ConvidadoModel convidado) {
+		convidado.setEvento(er.findById(idEvento).get());
+		cr.save(convidado);
+		return "redirect:/lista";
 	}
 	
 	@GetMapping("/lista")
@@ -34,13 +53,13 @@ public class EventoController {
 	}
 	
 	@GetMapping("/evento")
-	public ModelAndView lerEvento(@RequestParam long id) {
+	public ModelAndView getEvento(@RequestParam long id) {
 		ModelAndView mv = new ModelAndView("infoEvento");
 		mv.addObject("evento", er.findById(id).get());
 		return mv;
 	}
 	
-	@GetMapping("/bopornort")
+	@GetMapping("/boporort")
 	public String getBopornort() {
 		return "index";
 	}

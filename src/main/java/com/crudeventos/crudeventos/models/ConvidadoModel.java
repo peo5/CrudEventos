@@ -5,31 +5,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="evento")
+@Table(name="convidado")
 public class ConvidadoModel implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private String rg;
 	private String nome;
-	private String local;
-	private String data;
-	private String horario;
-
+	
+	@ManyToOne
+	private EventoModel evento;
+	
 	public ConvidadoModel() {}
 
-	public ConvidadoModel(String nome, String local, String data, String horario) {
+	public ConvidadoModel(String rg, String nome) {
+		this.rg = rg;
 		this.nome = nome;
-		this.local = local;
-		this.data = data;
-		this.horario = horario;
 	}
 
-	public long getId() {
-		return id;
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public String getNome() {
@@ -40,27 +42,11 @@ public class ConvidadoModel implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getLocal() {
-		return local;
+	public EventoModel getEvento() {
+		return evento;
 	}
 
-	public void setLocal(String local) {
-		this.local = local;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
-	public String getHorario() {
-		return horario;
-	}
-
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public void setEvento(EventoModel evento) {
+		this.evento = evento;
 	}
 }

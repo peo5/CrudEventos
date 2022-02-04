@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title>Cadastrar Evento</title>
+        <meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	<link rel="stylesheet" href="/main.css"></link>
+</head>
+<body>
+        <div class="center_nest">
+		<h2>Cadastrar Convidado</h2>
+		<form method="POST">
+			<input type="text" name="idEvento" th:value="${idEvento}" style="display: none"/>
+			<table>
+				<tr>
+					<td><label for="nome">Nome:</label></td>
+					<td><input type="text" name="nome" id="nome"/></td>
+				</tr>
+				<tr>
+					<td><label for="rg">RG:</label></td>
+					<td><input type="text" name="rg" id="rg"/></td>
+				</tr>
+			</table>
+			<div class="btn_nest">
+				<a href="/"><div class="btn">início</div></a>
+				<input type="submit" value="cadastrar"/>
+			</div>
+		</form>
+        </div>
+</body>
+</html>
