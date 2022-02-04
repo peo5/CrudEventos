@@ -30,9 +30,14 @@ xmlns:th="http://www.thymeleaf.org">
 						<td><span th:text="${evento.horario}" /></td>
 					</tr>
 				</table>
-			</div>
-			<div id="convidados_container">
+			
 				<h2>Convidados</h2>
+				<div id="convidados_container" class="list_container">
+					<div class="convidado" th:each="convidado : ${convidados}">
+						<span th:text="${convidado.nome}" class="convidado_nome"></span>
+						<span th:text="${convidado.rg}" class="convidado_local"></span>
+					</div>
+				</div>
 			</div>
 			<div class="btn_nest">
 				<a href="/"><div class="btn">início</div></a>

@@ -42,7 +42,7 @@ public class EventoController {
 	public String postConvidado(long idEvento, ConvidadoModel convidado) {
 		convidado.setEvento(er.findById(idEvento).get());
 		cr.save(convidado);
-		return "redirect:/lista";
+		return "redirect:/evento?id=" + idEvento;
 	}
 	
 	@GetMapping("/lista")
@@ -55,7 +55,9 @@ public class EventoController {
 	@GetMapping("/evento")
 	public ModelAndView getEvento(@RequestParam long id) {
 		ModelAndView mv = new ModelAndView("infoEvento");
-		mv.addObject("evento", er.findById(id).get());
+		EventoModel evento = er.findById(id).get();
+		mv.addObject("evento", evento);
+		mv.addObject("convidados", cr.findByEvento(evento));
 		return mv;
 	}
 	

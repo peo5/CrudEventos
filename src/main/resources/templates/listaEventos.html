@@ -10,7 +10,7 @@
 	<body>
 		<div class="center_nest">
 			<h2>Lista de eventos</h2>
-			<div id="lista_eventos">
+			<div id="lista_eventos" class="list_container">
 				<a th:each="evento : ${eventos}" th:href="@{/evento(id=${evento.id})}">
 					<div class="evento">
 						<span th:text="${evento.nome}" class="evento_nome"></span>

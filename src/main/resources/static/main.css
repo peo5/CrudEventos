@@ -50,21 +50,33 @@ input {
 	align-items: center;
 }
 
-.evento {
+.list_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.evento, .convidado {
 	margin: 5px;
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 20px;
-	width: 40vw;
+        width: 100%;
 	display: inline-grid;
-	grid-template-columns: 2fr 2fr 1fr 1fr;
 	justify-content: center;
 	align-items: center;
 	color: black;
 	text-decoration: none;
 }
 
-form, #lista_eventos {
+.evento {
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+}
+
+.convidado {
+    grid-template-columns: 2fr 1fr;
+}
+
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
